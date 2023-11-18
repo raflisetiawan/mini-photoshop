@@ -14,7 +14,7 @@
         Ukuran Gambar:
       </div>
       <div class="col-10">
-        {{ bytesToKilobytes(imageState.imageInfo.fileSize) }} Kb
+        {{ imageState.imageInfo.fileSize }} KB
       </div>
     </div>
     <div class="row justify-center">
@@ -38,7 +38,6 @@
 
 <script setup lang="ts">
 import { useImageStore } from 'stores/image';
-import { bytesToKilobytes } from 'src/composables/imageInfo'
 
 const { $state: imageState } = useImageStore();
 </script>

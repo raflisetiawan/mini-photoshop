@@ -23,18 +23,22 @@
 </template>
 
 <script setup lang="ts">
+import { useImageStore } from 'src/stores/image';
 import { useDialogStore } from 'stores/dialog'
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const { $state: dialogState } = useDialogStore()
 const { push: routerPush } = useRouter();
+const { filterMedian } = useImageStore()
 const kernelSize = ref(3)
 const kernelSizeRef = ref()
 
-const handleMedian = () => {
+const handleMedian = async () => {
   dialogState.kernelSize = kernelSize.value
   dialogState.filterMedian = false;
+
+  await filterMedian(dialogState.kernelSize);
   routerPush({ name: 'MedianPage' });
 }
 </script>

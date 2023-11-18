@@ -29,9 +29,13 @@ export const useImageStore = defineStore('image', {
     normalizeHistogramValue: [],
     equalizeHistogramValue: [],
     equalizeImageName: '',
+    medianFilterImageName: '',
+    allImages: [],
   }),
   actions: {
     async uploadImage(image: File) {
+      console.log(image);
+
       this.image = image;
       const formData = new FormData();
       formData.append('image', image);
@@ -128,6 +132,13 @@ export const useImageStore = defineStore('image', {
       );
 
       this.rotateImageName = this.getFileName(response.data);
+    },
+    async filterMedian(size: number) {
+      const response = await api.get(
+        `image-filter/median/${this.imageName}?size=${size}`
+      );
+
+      this.medianFilterImageName = this.getFileName(response.data);
     },
 
     async flipImage(axis: string) {
