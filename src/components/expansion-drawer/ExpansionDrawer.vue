@@ -6,6 +6,7 @@
     <FilterGroup />
     <EdgeDetectionGroup />
     <HistogramGroup />
+    <OtherGroup />
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import GeometriGroup from './GeometriGroup.vue';
 import FilterGroup from './FilterGroup.vue';
 import EdgeDetectionGroup from './EdgeDetectionGroup.vue';
 import HistogramGroup from './HistogramGroup.vue';
+import OtherGroup from './OtherGroup.vue';
 </script>
 
 <style scoped></style>

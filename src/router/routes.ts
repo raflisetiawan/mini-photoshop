@@ -117,6 +117,11 @@ const routes: RouteRecordRaw[] = [
         component: () => import('pages/EqualizePage.vue'),
         name: 'EqualizePage',
       },
+      {
+        path: 'filter-average',
+        component: () => import('pages/FilteringPage.vue'),
+        name: 'FilteringPage',
+      },
     ],
   },
 

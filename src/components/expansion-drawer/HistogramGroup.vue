@@ -7,10 +7,6 @@
           </q-btn>
         </div>
         <div class="col-5 q-mb-md">
-          <q-btn icon="insert_chart" @click="handleNormalizedGetHistogram" label="Normalize" flat size="sm">
-          </q-btn>
-        </div>
-        <div class="col-5 q-mb-md">
           <q-btn icon="equalizer" @click="handleEqualizeHistogram" label="Equalized" flat size="sm">
           </q-btn>
         </div>
@@ -22,7 +18,7 @@
 <script setup lang="ts">
 import { useImageStore } from 'stores/image'
 import { useRouter } from 'vue-router';
-const { getNormalizeHistogram, getHistogram, getEqualizeHistogram } = useImageStore();
+const { getHistogram, getEqualizeHistogram } = useImageStore();
 const { push } = useRouter();
 
 const handleGetHistogram = async () => {
@@ -30,10 +26,6 @@ const handleGetHistogram = async () => {
   push({ name: 'HistogramPage' })
 }
 
-const handleNormalizedGetHistogram = async () => {
-  await getNormalizeHistogram();
-  push({ name: 'NormalizePage' })
-}
 const handleEqualizeHistogram = async () => {
   await getEqualizeHistogram();
   push({ name: 'EqualizePage' })

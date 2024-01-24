@@ -5,11 +5,6 @@
         <div class="text-h5">Equalized Histogram </div>
       </div>
       <div class="row justify-center">
-
-        <div class="col-12 text-center">
-          <!-- Histogram disini -->
-          <canvas ref="histogramCanvas" style="max-width: 500px"></canvas>
-        </div>
         <div class="col-12">
           <q-img @error="handleImageError()" :src="imageUrl" spinner-color="white" style="max-width: 500px" />
         </div>
@@ -113,15 +108,6 @@ const handleImageError = async () => {
   }
 };
 
-const handleSave = async () => {
-  const blob = await fetch(imageUrl.value).then((r) => r.blob());
-  const blobUrl = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = blobUrl;
-  link.download = 'binary_image.jpg';
-  link.click();
-  URL.revokeObjectURL(blobUrl);
-};
 </script>
 
 <style scoped>

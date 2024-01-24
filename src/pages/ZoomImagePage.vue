@@ -64,7 +64,6 @@ watchEffect(async () => {
 });
 
 const reRender = async () => {
-  console.log('pok');
 
   try {
     const originalImage = await loadImage($state.image);

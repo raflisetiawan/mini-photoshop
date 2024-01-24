@@ -2,8 +2,20 @@ import * as cv from '@techstark/opencv-js';
 
 import { ref, Ref } from 'vue';
 
-async function loadImage(imageFile: File | undefined | any): Promise<cv.Mat> {
+interface ZoomImage {
+  zoomFactor: Ref<number>;
+  zoomIn: () => void;
+  zoomOut: () => void;
+  resetZoom: () => void;
+}
+
+async function loadImage(imageFile: File | undefined): Promise<cv.Mat> {
   return new Promise((resolve, reject) => {
+    if (!imageFile) {
+      reject(new Error('Image file is undefined'));
+      return;
+    }
+
     const reader = new FileReader();
     reader.onload = (event) => {
       if (event.target) {
@@ -79,7 +91,7 @@ export function useImageZoom(options: ImageZoomOptions) {
 export function applyZoom(
   image: cv.Mat,
   canvasRef: Ref<null | HTMLCanvasElement>,
-  imageZoom: any
+  imageZoom: ZoomImage
 ): void {
   // Pastikan canvasRef ada dan bukan null
   if (canvasRef.value) {

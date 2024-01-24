@@ -1,4 +1,3 @@
-import { ref } from 'vue';
 import * as cv from '@techstark/opencv-js';
 
 interface HistogramData {

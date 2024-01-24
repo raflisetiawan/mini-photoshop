@@ -23,7 +23,7 @@ import { useImageStore } from 'src/stores/image';
 import { useQuasar } from 'quasar';
 import { useDialogStore } from 'src/stores/dialog';
 
-const { rotateImageName, $state } = useImageStore();
+const { $state } = useImageStore();
 const { $state: dialogState } = useDialogStore()
 const imageUrl = ref('');
 const { loading } = useQuasar();

@@ -27,7 +27,7 @@
 <script setup lang="ts">
 import { useDialogStore } from 'src/stores/dialog';
 
-const { toggleTranslationDialog, toggleRotateDialog, toggleFlipDialog, toggleZoomDialog } = useDialogStore()
+const { toggleTranslationDialog, toggleRotateDialog, toggleFlipDialog } = useDialogStore()
 </script>
 
 <style scoped></style>
